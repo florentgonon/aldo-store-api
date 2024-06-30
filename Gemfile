@@ -15,6 +15,9 @@ gem "puma", "~> 5.0"
 # ENV var
 gem "figaro"
 
+# Debug
+gem "pry-byebug"
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
