@@ -15,6 +15,12 @@ gem "puma", "~> 5.0"
 # Debug
 gem "pry-byebug"
 
+# Testing
+group :test do
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+end
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 

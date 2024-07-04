@@ -8,10 +8,12 @@ class Api::V1::InventoriesController < ApplicationController
   def update
     @inventory = Inventory.find(params[:id])
     if @inventory.update(inventory_params)
-      render json: @inventory
+      render json: @inventory, status: :ok
     else
-      render json: { errors: ["Unable to update inventory"] }
+      render json: { errors: ["Unable to update inventory"] }, status: :bad_request
     end
+  rescue ActiveRecord::RecordNotFound
+    render json: { errors: ["Inventory not found"] }, status: :not_found
   end
 
   private
