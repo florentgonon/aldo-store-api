@@ -1,9 +1,9 @@
 class Api::V1::Stores::InventoriesController < ApplicationController
+  before_action :set_inventories, only: [:index]
   before_action :set_inventory, only: [:show]
 
   def index
-    @inventories = Inventory.where(store_id: params[:store_id])
-    render json: @inventories
+    render json: @inventories.map { |inventory| inventory.attributes.except("shoe_id", "store_id").merge(shoe_name: inventory.shoe.name, store_name: inventory.store.name) }
   end
 
   def show
@@ -11,6 +11,10 @@ class Api::V1::Stores::InventoriesController < ApplicationController
   end
 
   private
+
+  def set_inventories
+    @inventories = Inventory.where(store_id: params[:store_id])
+  end
 
   def set_inventory
     @inventory = Inventory.find(params[:id])

@@ -1,26 +1,25 @@
 require "rails_helper"
 
 RSpec.describe Api::V1::InventoriesController, type: :controller do
+  before(:all) do
+    @inventory = create(:inventory)
+  end
+
+  after(:all) do
+    @inventory.destroy
+  end
   describe "GET #index" do
     context "all is ok" do
       it "return a 200 with inventories" do
-        inventory = create(:inventory)
         get :index
 
         expect(response).to have_http_status(:ok)
-        inventory.destroy
+        @inventory.destroy
       end
     end
   end
 
   describe "PUT #update" do
-    before(:all) do
-      @inventory = create(:inventory)
-    end
-
-    after(:all) do
-      @inventory.destroy
-    end
     context "with valid params" do
       it "return a 200 and updates the requested inventory" do
         put :update, params: { id: @inventory.id, inventory: { stock: 5 } }
