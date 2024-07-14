@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       resources :inventories, only: %i[index]
       resources :stores, only: %i[index]
       put "/inventories/:id", to: "inventories#update"
+      scope module: :stores, path: "/stores/:store_id", as: :store do
+        resources :inventories, only: %i[index]
+      end
     end
   end
 end
