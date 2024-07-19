@@ -19,7 +19,7 @@ Here is our API to populate, update and get data from the database.
 
 
 ### Instructions
-**When you're ready : You need yo launch the API server first to enable the inventory persistence in database**
+## **When you're ready : You need yo launch the API server first to enable the inventory persistence in database**
 
 * Make sure you have a complete installation of Ruby on Rails with depencies
 * Make sure you have PostgreSQL to allow to create a Database
