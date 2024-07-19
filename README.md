@@ -9,6 +9,7 @@ Here is our API to populate, update and get data from the database.
     * GET all stores
     * GET all inventories for given store
     * PUT Update an inventory for a given shoe and store
+    * POST Create a transfer (in fact update two inventories) of shoes between two stores
 
 
 ### Technical stack :
